@@ -1,11 +1,61 @@
 
-<h1 align="center" style="color: blue;">🎓 CS50 Projects | پروژه‌های CS50</h1>
+<h1 align="center" style="color: blue;">🎓 CS50 Projects</h1>
 
 <div align="center">
     <a href="https://git.io/typing-svg">
         <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=27&pause=1000&color=0BF700&width=435&lines=Projects+from+CS50+Course" alt="Typing SVG" />
     </a>
 </div>
+
+---
+
+### 🌱 About the Projects
+
+This repository contains various projects completed in the CS50 course at Harvard University. These projects are written in the C programming language and other languages, helping you to enhance your programming skills and understand the fundamental concepts of computer science.
+
+---
+
+### 🚀 Installation
+
+To use the projects, you first need to install a C development environment on your system. You can use [Xcode](https://developer.apple.com/xcode/) for macOS or [Code::Blocks](http://www.codeblocks.org/) for Windows.
+
+After installing the development environment, you can run the projects as follows:
+
+1. **Clone the repository:**
+
+
+bash git clone https://github.com/Amination1/cs50.git cd cs50
+
+
+2. **Compile the desired project:**
+
+
+bash clang -o project_name project_name.c
+
+
+3. **Run the project:**
+
+
+bash ./project_name
+
+
+---
+
+### 🤝 Contribution
+
+If you would like to contribute to these projects, we would love to hear your feedback and suggestions. Please submit a pull request.
+
+---
+
+### 📜 License
+
+This project is licensed under the MIT License. For more information, please see the LICENSE file.
+
+---
+
+### 📫 Contact
+
+For any questions or issues, you can reach me via [GitHub](https://github.com/Amination1).
 
 ---
 
