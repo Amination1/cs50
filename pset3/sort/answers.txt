@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: i test all of sort files in terminal with reversed5000,txt and  with time ./nameOfSortFile reversed5000.txt and bubble sort slower than all of sorting files
+
+sort2 uses: Merge Sort
+
+How do you know?: i test all of sort files in terminal with reversed5000,txt and  with time ./nameOfSortFile reversed5000.txt and merge sort faster than all of sorting files
+
+sort3 uses: Selection Sort
+
+How do you know?: i test all of sort files in terminal with reversed5000,txt and  with time ./nameOfSortFile reversed5000.txt and selection sort between merge sort and bubble sort

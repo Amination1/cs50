@@ -1,0 +1,15 @@
+r5000:
+    sort1 = real    0m0.068s // selection sort
+    sort2 = real    0m0.033s // merge sort
+    sort3 = real    0m0.074s //Bubble sort
+
+temp :
+Bubble Sort
+i test all of sort files in terminal with reversed5000,txt and  with time ./nameOfSortFile reversed5000.txt and bubble sort slower than all of sorting files
+
+
+Selection Sort
+i test all of sort files in terminal with reversed5000,txt and  with time ./nameOfSortFile reversed5000.txt and selection sort between merge sort and bubble sort
+
+Merge Sort
+i test all of sort files in terminal with reversed5000,txt and  with time ./nameOfSortFile reversed5000.txt and merge sort faster than all of sorting files
