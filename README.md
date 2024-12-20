@@ -1,3 +1,4 @@
+در زیر یک نسخه از README.md با دکمه‌هایی برای هدایت به بخش‌های انگلیسی و فارسی اضافه شده است:
 
 <h1 align="center" style="color: blue;">🎓 CS50 Projects</h1>
 
@@ -9,7 +10,14 @@
 
 ---
 
-### 🌱 About the Projects
+<div align="center">
+    <a href="#english-section" style="padding: 10px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">English Version</a>
+    <a href="#persian-section" style="padding: 10px; background-color: #2196F3; color: white; text-decoration: none; border-radius: 5px;">نسخه فارسی</a>
+</div>
+
+---
+
+### 🌱 About the Projects {#english-section}
 
 This repository contains various projects completed in the CS50 course at Harvard University. These projects are written in the C programming language and other languages, helping you to enhance your programming skills and understand the fundamental concepts of computer science.
 
@@ -59,7 +67,7 @@ For any questions or issues, you can reach me via [GitHub](https://github.com/Am
 
 ---
 
-### 🌱 درباره پروژه‌ها
+### 🌱 درباره پروژه‌ها {#persian-section}
 
 این ریپوزیتوری شامل پروژه‌های مختلفی است که در دوره CS50 دانشگاه هاروارد انجام شده‌اند. این پروژه‌ها به زبان برنامه‌نویسی C و دیگر زبان‌ها نوشته شده‌اند و به شما کمک می‌کنند تا مهارت‌های برنامه‌نویسی خود را تقویت کنید و مفاهیم اصلی علوم کامپیوتر را درک کنید.
 
@@ -106,4 +114,3 @@ bash ./project_name
 ### 📫 تماس با من
 
 برای هرگونه سوال یا مشکل، می‌توانید با من از طریق [GitHub](https://github.com/Amination1) تماس بگیرید.
-
