@@ -1,4 +1,3 @@
-در زیر یک نسخه از README.md با دکمه‌هایی برای هدایت به بخش‌های انگلیسی و فارسی اضافه شده است:
 
 <h1 align="center" style="color: blue;">🎓 CS50 Projects</h1>
 
@@ -17,7 +16,7 @@
 
 ---
 
-### 🌱 About the Projects {#english-section}
+### <h1 id="english-section">🌱 About the Projects<h1>
 
 This repository contains various projects completed in the CS50 course at Harvard University. These projects are written in the C programming language and other languages, helping you to enhance your programming skills and understand the fundamental concepts of computer science.
 
