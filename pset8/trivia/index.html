@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+        function corChecker(correct, element) {
+            var feedbackElement = document.querySelector('.' + element); // Use class selector
+            if (feedbackElement) { // Check if the element exists
+                if (correct) {
+                    feedbackElement.innerHTML = "Correct!";
+                } else {
+                    feedbackElement.innerHTML = "Incorrect";
+                }
+            } else {
+                console.error("Element with class '" + element + "' not found.");
+            }
+        }
+
+        function resetBtn() {
+            var btns = document.querySelectorAll(".button");
+            btns.forEach(function (btn) {
+                btn.classList.remove("incorrect");
+                btn.classList.remove("correct");
+            });
+            document.querySelector('.mltc').innerHTML = ""; // Reset feedback message
+        }
+
+        function answerGet(event) {
+            resetBtn();
+            if (event.target.id === "correct") {
+                event.target.classList.add('correct');
+                corChecker(true, "mltc");
+            } else {
+                event.target.classList.add('incorrect');
+                corChecker(false, "mltc");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var btns = document.querySelectorAll(".button");
+            btns.forEach(function (btn) {
+                btn.addEventListener("click", answerGet);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <h3>Who is the best Django programmer in the world?</h3>
+            <h2 class="mltc"></h2>
+            <button id="correct" class="button">Amin</button>
+            <button class="button">Aref</button>
+            <button class="button">Abbas</button>
+            <button class="button">Asghar palang</button>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>What is your favorite programming language?</h3>
+            <input type="text" id="response" placeholder="Type your answer here">
+            <button id="submitResponse" class="button">Submit</button>
+            <h2 class="responseFeedback"></h2>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submitResponse').addEventListener('click', function() {
+            var userAnswer = document.getElementById('response').value;
+            var feedbackElement = document.querySelector('.responseFeedback');
+
+            if (userAnswer.toLowerCase() === 'python') { // Example correct answer
+                feedbackElement.innerHTML = "Great choice!";
+            } else {
+                feedbackElement.innerHTML = "That's interesting!";
+            }
+        });
+    </script>
+</body>
+</html>

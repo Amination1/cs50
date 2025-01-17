@@ -1,0 +1,121 @@
+body {
+    background-color: #181818; /* رنگ پس‌زمینه تاریک */
+    color: #e0e0e0; /* رنگ متن روشن */
+    font-family: 'Roboto', sans-serif; /* فونت مناسب */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* وسط‌چین کردن متن */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #4CAF50; /* رنگ سبز برای عنوان */
+}
+
+main {
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #2c2c2c; /* رنگ پس‌زمینه بخش‌ها */
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* سایه ملایم */
+}
+
+a {
+    color: #4CAF50; /* رنگ لینک‌ها */
+    text-decoration: none; /* حذف زیرخط */
+}
+
+a:hover {
+    text-decoration: underline; /* زیرخط در حالت hover */
+}
+
+.project {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #3a3a3a; /* رنگ پس‌زمینه روشن‌تر برای پروژه‌ها */
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* سایه ملایم */
+}
+
+.avatar {
+    width: 100px; /* عرض تصویر پروفایل */
+    border-radius: 50%; /* دایره‌ای کردن تصویر */
+}
+
+.language-icon {
+    width: 30px; /* اندازه آیکون‌ها */
+    margin: 5px; /* فاصله بین آیکون‌ها */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-all {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50; /* رنگ دکمه */
+    color: white; /* رنگ متن دکمه */
+    border-radius: 5px;
+}
+.home-link {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50; /* رنگ دکمه */
+    color: white; /* رنگ متن دکمه */
+    border-radius: 5px;
+    text-decoration: none; /* حذف زیرخط */
+}
+
+.home-link:hover {
+    background-color: #45a049; /* رنگ دکمه در حالت hover */
+}
+
+#readmeContent {
+    text-align: center; /* راست‌چین کردن متن */
+    line-height: 1.6; /* فاصله بین خطوط */
+    padding: 15px;
+    background-color: #2c2c2c; /* رنگ پس‌زمینه */
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* سایه ملایم */
+    overflow: hidden; /* جلوگیری از اسکرول */
+    max-height: none; /* جلوگیری از محدودیت ارتفاع */
+    width: 100%; /* عرض کامل */
+    box-sizing: border-box; /* شامل padding در اندازه */
+}
+
+#readmeContent pre {
+    background-color: #3a3a3a; /* رنگ پس‌زمینه برای کد */
+    padding: 10px; /* فضای داخلی */
+    border-radius: 5px; /* دایره‌ای کردن گوشه‌ها */
+    overflow-x: auto; /* اجازه اسکرول افقی برای کد */
+    white-space: pre-wrap; /* اجازه شکستن خط در کد */
+}
+
+#readmeContent code {
+    background-color: #f0f0f0; /* رنگ پس‌زمینه برای کدهای درون متن */
+    padding: 2px 4px; /* فضای داخلی */
+    border-radius: 4px; /* دایره‌ای کردن گوشه‌ها */
+}
+#readmeContent img {
+    max-width: 100%; /* حداکثر عرض 100% از والد */
+    height: auto; /* ارتفاع به طور خودکار تنظیم شود */
+    /* display: block; نمایش به صورت بلوکی */
+    margin: 0 auto; /* وسط‌چین کردن تصاویر */
+}
