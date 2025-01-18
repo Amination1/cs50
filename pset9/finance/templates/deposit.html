@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Deposit Funds
+{% endblock %}
+
+{% block main %}
+<form action="/deposit" method="get">
+    <div class="mb-3">
+        <label class="mb-3 fw-bold" for="password">Confirm Password</label>
+        <input class="form-control mx-auto w-auto mb-3"
+               type="password" id="password" name="password"
+               placeholder="Confirm Password" minlength="1" required
+               aria-label="Confirm Password">
+
+        <label class="mb-3 fw-bold" for="sum">Deposit Amount</label>
+        <input class="form-control mx-auto w-auto mb-3"
+               type="number" id="sum" name="sum"
+               placeholder="Amount ($)" min="10" step="10" required
+               aria-label="Deposit Amount">
+
+        <button class="btn btn-primary btn-sm" type="submit">Deposit</button>
+    </div>
+</form>
+{% endblock %}

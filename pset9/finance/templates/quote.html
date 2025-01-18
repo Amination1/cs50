@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    {% if success %}
+        <div class="alert alert-success" role="alert">
+            {{ success }}
+        </div>
+    {% endif %}
+
+    <form action="/quote" method="post" class="col-md-6 mx-auto">
+        <div class="mb-3">
+            <label for="symbol" class="form-label">Search for Stock Value</label>
+            <input class="form-control" id="symbol" name="symbol" placeholder="Example: AMD" minlength="1" required pattern="[A-Za-z]{1,10}">
+            <div class="form-text">Enter a valid stock symbol (e.g., AMD, AAPL, TSLA).</div>
+        </div>
+        <button class="btn btn-primary w-100" type="submit">Quote</button>
+    </form>
+{% endblock %}
