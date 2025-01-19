@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block main %}
+
     <div class="table-responsive-md">
+        28.00
         <table class="table table-bordered table-striped mx-auto w-75">
             <thead>
                 <tr class="table-active">
@@ -19,14 +21,14 @@
             </thead>
             <tbody>
                 {% for transaction in transactions %}
-                <tr class="table-light">
-                    <td>{{ transaction["company_name"] }}</td>
-                    <td>{{ transaction["symbol"] }}</td>
-                    <td>{{ transaction["shares"] }}</td>
-                    <td>{{ transaction["action"] }}</td>
-                    <td>{{ transaction["balance"] }}</td>
-                    <td>{{ transaction["transacted"] }}</td>
-                </tr>
+                    <tr class="table-light">
+                        <td>{{ transaction.symbol }}</td>
+                        <td>{{ transaction.company_name }}</td>
+                        <td>{{ transaction.shares }}</td>
+                        <td>${{ transaction.price }}</td> <!-- بررسی صحت مقدار price -->
+                        <td>{{ transaction.action }}</td>
+                        <td>{{ transaction.transacted }}</td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>

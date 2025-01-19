@@ -7,9 +7,11 @@ import os
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
+
 def apology(message, code=400):
     """Render message as an apology to user."""
     return render_template("apology.html", top=code, bottom=message), code
+
 
 def login_required(f):
     """Decorator to require login for routes."""
@@ -48,7 +50,6 @@ def lookup(symbol):
         }
     except Exception as e:
         return None
-
 
 
 def usd(value):

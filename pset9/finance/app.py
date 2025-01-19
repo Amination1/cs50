@@ -51,13 +51,14 @@ def index():
     for stock in portfolio:
         stock_info = lookup(stock["symbol"])
         if stock_info:
+            stock["name"] = stock["symbol"].upper()  # نام شرکت (اختیاری)
             stock["current_price"] = stock_info["price"]
-            stock["total_value"] = stock_info["price"] * stock["shares"]
-            total_value += stock["total_value"]
+            stock["stock_value"] = stock_info["price"] * stock["shares"]
+            total_value += stock["stock_value"]
         else:
             flash(f"Could not retrieve data for {stock['symbol']}.", "warning")
 
-    return render_template("index.html", portfolio=portfolio, cash_left=cash_left, total_value=total_value)
+    return render_template("index.html", portfolio=portfolio, cash_left=cash_left, total_amount=total_value)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -84,7 +85,8 @@ def register():
 
         # Try to insert user
         try:
-            db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, hashed_password)
+            db.execute("INSERT INTO users (username, hash) VALUES (?, ?)",
+                       username, hashed_password)
         except Exception as e:
             print(f"Database error: {e}")
             return apology("Registration failed. Please try again.", 500)
@@ -150,42 +152,59 @@ def quote():
     return render_template("quote.html")
 
 
-
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
     """Buy shares of stock."""
     if request.method == "POST":
-        symbol = request.form.get("symbol")
+        # دریافت اطلاعات از فرم
+        symbol = request.form.get("symbol").upper()  # تبدیل به حروف بزرگ برای سازگاری
         shares = request.form.get("shares")
 
-        # Validate inputs
-        if not symbol or not shares.isdigit() or int(shares) <= 0:
+        # اعتبارسنجی ورودی‌ها
+        if not symbol or not shares or not shares.isdigit() or int(shares) <= 0:
             return apology("Invalid input!", 400)
 
         shares = int(shares)
-        stock = lookup(symbol)
+        stock = lookup(symbol)  # دریافت اطلاعات سهام
         if not stock:
             return apology("Invalid stock symbol!", 400)
 
+        # محاسبه هزینه کل
         cost = shares * stock["price"]
+
+        # بررسی نقدینگی کاربر
         user_cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])[0]["cash"]
         if cost > user_cash:
             return apology("Not enough cash!", 400)
 
-        # Update database
+        # به‌روزرسانی پایگاه داده
         try:
+            # افزودن تراکنش به جدول تراکنش‌ها
             db.execute("INSERT INTO transactions (user_id, symbol, shares, price) VALUES (?, ?, ?, ?)",
                        session["user_id"], symbol, shares, stock["price"])
+
+            # کاهش موجودی نقدی کاربر
             db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", cost, session["user_id"])
+
+            # به‌روزرسانی جدول پورتفولیو
+            portfolio = db.execute("SELECT shares FROM portfolios WHERE user_id = ? AND symbol = ?",
+                                   session["user_id"], symbol)
+            if portfolio:
+                db.execute("UPDATE portfolios SET shares = shares + ? WHERE user_id = ? AND symbol = ?",
+                           shares, session["user_id"], symbol)
+            else:
+                db.execute("INSERT INTO portfolios (user_id, symbol, shares) VALUES (?, ?, ?)",
+                           session["user_id"], symbol, shares)
         except Exception as e:
             print(f"Database error: {e}")
             return apology("Transaction failed. Please try again.", 500)
 
+        # نمایش پیام موفقیت و انتقال به صفحه اصلی
         flash(f"Bought {shares} shares of {symbol} for {usd(cost)}!", "success")
         return redirect("/")
 
-
+    # نمایش فرم خرید
     return render_template("buy.html")
 
 
@@ -233,6 +252,8 @@ def sell():
 def history():
     """Show history of transactions."""
     transactions = db.execute("SELECT * FROM transactions WHERE user_id = ?", session["user_id"])
+
+    # چاپ برای بررسی داده‌ها
     return render_template("history.html", transactions=transactions)
 
 
@@ -240,6 +261,7 @@ def history():
 @login_required
 def withdraw():
     return render_template("withdraw.html")
+
 
 @app.route("/deposit")
 @login_required
